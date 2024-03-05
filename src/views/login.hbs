@@ -1,0 +1,27 @@
+<h1>
+	Image Gallery
+</h1>
+<h3>
+	Login
+</h3>
+
+<form action='/login' method='POST'>
+	<label>
+		Username:
+		<input type='text' name='username' placeholder='Username' />
+	</label>
+	<label>
+		Password:
+		<input type='password' name='password' placeholder='Password' />
+	</label>
+	<button type='submit'>Login</button>
+</form>
+<a href='/register'>
+	Dont have an account? Register here.
+</a>
+
+{{#if error}}
+	<p>
+		{{error}}
+	</p>
+{{/if}}

@@ -1,0 +1,41 @@
+<nav>
+  <p>
+    Hey,
+    <span>{{user}}</span>
+    <a href='/logout' class='hidden'>Logout</a>
+  </p>
+
+</nav>
+
+<h1>Image Gallery</h1>
+<div class='flex'>
+  <form action='/change-image' method='POST'>
+    {{#each images}}
+    <label>
+      <input type='radio' name='image' value='{{this}}' />
+      <span>
+        {{#camelCaseToWords this}}
+        {{this}}
+        {{/camelCaseToWords}}
+      </span>
+    </label>
+    {{/each}}
+    <button type='submit'>Change Image</button>
+  </form>
+  <div class='imageContainer'>
+    <img src={{imageUrl}} alt={{currentImage}} />
+    <p>{{currentImage}}</p>
+  </div>
+</div>
+
+<script>
+  const userNameEle = document.querySelector('nav p'); 
+  const logoutEle = document.querySelector('nav a');
+  console.log(userNameEle);
+  console.log(logoutEle);
+  userNameEle.addEventListener('mouseover', () => { logoutEle.classList.remove('hidden'); });
+  userNameEle.addEventListener('mouseout', () => {
+    logoutEle.classList.add('hidden');
+  });
+
+</script>
